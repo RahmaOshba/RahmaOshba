@@ -1,0 +1,339 @@
+<title>فستان رحمة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  /* Layout: a bridal tech pack. The sketch stays beside the brief on wide screens and sits above it on phones. */
+  :root {
+    --paper: #F6F5FA;      /* lavender-white page, from the indigo/lilac of her AI deck */
+    --panel: #FFFFFF;
+    --ink: #1E1B4B;        /* the deck's indigo, also the "something blue" ribbon */
+    --muted: #5C588A;
+    --line: #DAD7EC;
+    --thread: #8F89BD;     /* silver-lilac embroidery thread */
+    --silk: #FFFDF8;       /* ivory crepe */
+    --silk-shade: #E7E2D6;
+    --organza: #CFC8F2;
+    --pearl: #FFFFFF;
+    --pearl-edge: #C9C4DD;
+    --skin: #D8A585;
+    --display: "Aref Ruqaa", "Amiri", "Noto Naskh Arabic", serif;
+    --body: "IBM Plex Sans Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12102A; --panel: #1A1839; --ink: #ECEAFB; --muted: #A8A4CF; --line: #2D2A55;
+      --thread: #B5AFE3; --silk: #F7F3EA; --silk-shade: #D9D2C3; --organza: #B9B0EE;
+      --pearl: #FFFFFF; --pearl-edge: #9C96C4; --skin: #C99577; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12102A; --panel: #1A1839; --ink: #ECEAFB; --muted: #A8A4CF; --line: #2D2A55;
+    --thread: #B5AFE3; --silk: #F7F3EA; --silk-shade: #D9D2C3; --organza: #B9B0EE;
+    --pearl: #FFFFFF; --pearl-edge: #9C96C4; --skin: #C99577; color-scheme: dark;
+  }
+
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.8; }
+  .page { direction: rtl; max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 56px; }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; align-items: start; }
+  .sketch { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  .sketch svg { display: block; width: 100%; height: auto; max-height: 88vh; }
+  .brief { min-width: 0; display: grid; gap: 40px; }
+
+  .eyebrow { font-size: 13px; letter-spacing: .04em; color: var(--muted); margin: 0; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(48px, 8vw, 84px); line-height: 1.15; margin: 4px 0 12px; text-wrap: balance; }
+  .lede { font-size: 18px; font-weight: 300; max-width: 34em; margin: 0; }
+
+  h2 { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.3; margin: 0 0 16px; text-wrap: balance; }
+
+  .spec { margin: 0; border-top: 1px solid var(--line); }
+  .spec > div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+  .spec dt { font-weight: 600; }
+  .spec dd { margin: 0; min-width: 0; }
+
+  .swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .swatch { display: grid; gap: 8px; }
+  .chip { aspect-ratio: 4 / 3; max-width: 100%; border-radius: 4px; border: 1px solid var(--line); }
+  .chip.crepe { background: linear-gradient(160deg, var(--silk) 0%, var(--silk) 55%, var(--silk-shade) 100%); }
+  .chip.organza { background: repeating-linear-gradient(100deg, color-mix(in srgb, var(--organza) 45%, var(--silk)) 0 6px, var(--silk) 6px 12px); }
+  .chip.ribbon { background: linear-gradient(90deg, #1E1B4B, #2E2A6B 50%, #1E1B4B); }
+  .swatch b { font-weight: 600; font-size: 14px; line-height: 1.5; }
+  .swatch span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .code { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; font-size: 12px; }
+
+  .motif { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 14px; }
+  .motif svg { width: 100%; height: auto; display: block; }
+  .motif p { margin: 0; font-size: 15px; }
+
+  .verse { font-family: var(--display); font-size: clamp(28px, 4.5vw, 40px); line-height: 1.6; margin: 0; text-align: center; }
+  .verse-src { text-align: center; color: var(--muted); font-size: 14px; margin: 4px 0 0; }
+
+  .why { margin: 0; padding: 0; list-style: none; display: grid; gap: 18px; }
+  .why li { display: grid; gap: 2px; }
+  .why b { font-weight: 600; }
+  .why span { color: var(--muted); }
+
+  .note { font-size: 15px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 20px; margin: 0; }
+
+  @media (max-width: 820px) {
+    .layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .sketch { position: static; max-width: 520px; margin-inline: auto; width: 100%; }
+    .sketch svg { max-height: none; }
+  }
+  @media (max-width: 460px) {
+    .spec > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .swatches { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .tiara circle { animation: glint 4.5s ease-in-out infinite; }
+    .tiara circle:nth-child(3n) { animation-delay: 1.5s; }
+    .tiara circle:nth-child(3n+1) { animation-delay: 3s; }
+  }
+  @keyframes glint { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+</style>
+
+<div class="page">
+  <div class="layout">
+    <figure class="sketch" aria-label="رسم الفستان من الأمام" style="margin:0">
+      <svg viewBox="0 0 520 772" style="direction:ltr" role="img" aria-labelledby="sk-title">
+        <title id="sk-title">رسم لعروس محجبة بفستان عاجي بقصّة A وأكمام طويلة وطرحة طويلة</title>
+        <defs>
+          <path id="bodice" d="M160 200 C176 194 224 194 240 200 C238 236 236 270 236 300 L164 300 C164 270 162 236 160 200 Z"/>
+          <path id="sleeve" d="M160 200 C142 204 134 236 130 284 C126 330 125 372 130 402 L152 402 C152 372 156 336 162 300 C162 260 162 230 160 200 Z"/>
+          <path id="skirt" d="M164 300 C152 420 112 560 70 690 Q200 714 330 690 C288 560 248 420 236 300 Z"/>
+          <path id="hem-text" d="M76 726 Q200 752 324 726"/>
+          <clipPath id="dress-clip">
+            <use href="#bodice"/>
+            <use href="#sleeve"/>
+            <use href="#sleeve" transform="matrix(-1 0 0 1 400 0)"/>
+            <use href="#skirt"/>
+          </clipPath>
+        </defs>
+
+        <g transform="translate(60 0)">
+          <!-- Cathedral veil, behind everything -->
+          <path d="M172 96 C128 170 86 420 30 732 Q200 768 370 732 C314 420 272 170 228 96 Z" fill="var(--organza)" fill-opacity=".22" stroke="var(--thread)" stroke-opacity=".55" stroke-width="1"/>
+          <text font-family="Aref Ruqaa, Amiri, serif" font-size="13" fill="var(--thread)" style="direction:rtl">
+            <textPath href="#hem-text" startOffset="50%" text-anchor="middle">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</textPath>
+          </text>
+
+          <!-- Skirt, organza overlay and folds -->
+          <use href="#skirt" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <g fill="none" stroke="var(--silk-shade)" stroke-width="1.2" stroke-linecap="round">
+            <path d="M184 306 C178 450 150 580 124 700"/>
+            <path d="M200 306 C200 450 200 580 200 708"/>
+            <path d="M216 306 C222 450 250 580 276 700"/>
+            <path d="M172 330 C160 470 128 590 96 696" stroke-opacity=".6"/>
+            <path d="M228 330 C240 470 272 590 304 696" stroke-opacity=".6"/>
+          </g>
+          <path d="M162 302 C146 430 100 570 54 700 Q200 728 346 700 C300 570 254 430 238 302 Z" fill="var(--organza)" fill-opacity=".2" stroke="var(--organza)" stroke-opacity=".7" stroke-width="1"/>
+
+          <!-- Sleeves, bodice -->
+          <use href="#sleeve" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <use href="#sleeve" transform="matrix(-1 0 0 1 400 0)" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <use href="#bodice" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+
+          <!-- Neural-network embroidery, drawn by script, clipped to the dress -->
+          <g id="net" clip-path="url(#dress-clip)"></g>
+
+          <!-- Cuffs with pearl buttons, hands -->
+          <g id="cuff">
+            <rect x="128" y="396" width="26" height="12" rx="3" fill="var(--silk)" stroke="var(--silk-shade)"/>
+            <circle cx="135" cy="402" r="2.2" fill="var(--pearl)" stroke="var(--pearl-edge)" stroke-width=".6"/>
+            <circle cx="141" cy="402" r="2.2" fill="var(--pearl)" stroke="var(--pearl-edge)" stroke-width=".6"/>
+            <circle cx="147" cy="402" r="2.2" fill="var(--pearl)" stroke="var(--pearl-edge)" stroke-width=".6"/>
+            <ellipse cx="141" cy="420" rx="7.5" ry="11" fill="var(--skin)"/>
+          </g>
+          <use href="#cuff" transform="matrix(-1 0 0 1 400 0)"/>
+
+          <!-- Pearl belt over the indigo ribbon -->
+          <rect x="164" y="297" width="72" height="6" fill="#1E1B4B" opacity=".9"/>
+          <g id="belt" fill="var(--pearl)" stroke="var(--pearl-edge)" stroke-width=".6"></g>
+
+          <!-- Hijab: draped capelet, head wrap, face, underscarf line, pearl crown -->
+          <path d="M178 170 C166 186 152 200 149 216 C168 234 232 234 251 216 C248 200 234 186 222 170 Z" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <path d="M166 210 Q200 228 234 210" fill="none" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <path d="M200 70 C164 70 150 100 152 132 C154 160 168 178 184 186 L216 186 C232 178 246 160 248 132 C250 100 236 70 200 70 Z" fill="var(--silk)" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <path d="M163 150 C168 172 182 184 200 188" fill="none" stroke="var(--silk-shade)" stroke-width="1.2"/>
+          <ellipse cx="200" cy="136" rx="22" ry="29" fill="var(--skin)"/>
+          <path d="M177 112 Q200 100 223 112" fill="none" stroke="var(--silk-shade)" stroke-width="1.6"/>
+          <g class="tiara" id="tiara" fill="var(--pearl)" stroke="var(--pearl-edge)" stroke-width=".6"></g>
+        </g>
+
+        <!-- Callouts -->
+        <g font-family="IBM Plex Sans Arabic, Tahoma, sans-serif" font-size="15" fill="var(--muted)">
+          <g stroke="var(--thread)" stroke-width=".8" fill="none">
+            <path d="M286 96 L392 66"/>
+            <path d="M213 160 L124 146"/>
+            <path d="M290 250 L362 262"/>
+            <path d="M226 300 L118 304"/>
+            <path d="M134 520 L106 520"/>
+          </g>
+          <text x="512" y="66" text-anchor="end">طوق لؤلؤ</text>
+          <text x="8" y="146">لفّة شيفون</text>
+          <text x="512" y="267" text-anchor="end">تطريز الشبكة</text>
+          <text x="8" y="309">حزام لؤلؤ</text>
+          <text x="8" y="525">طرحة بالآية</text>
+        </g>
+      </svg>
+    </figure>
+
+    <div class="brief">
+      <header>
+        <p class="eyebrow">تصميم متخيَّل للمهندسة رحمة خالد</p>
+        <h1>فستان رحمة</h1>
+        <p class="lede">فستان زفاف محتشم بقصّة A هادئة، عاجي اللون، مطرّز بلؤلؤ صغير تصله خيوط فضية رفيعة فيرسم شبكة عصبية تبدأ عند الكتفين وتتلاشى نحو الذيل كأنها نجوم. وعلى حافة الطرحة آية فيها اسمك.</p>
+      </header>
+
+      <section>
+        <h2>بطاقة التصميم</h2>
+        <dl class="spec">
+          <div><dt>القصّة</dt><dd>قصّة A واسعة لا تلتصق بالجسم، خصر محدد بحزام لؤلؤ رفيع، وتنورة تنزل بانسيابية حتى الأرض بلا انتفاخ مبالغ فيه.</dd></div>
+          <div><dt>الأكمام</dt><dd>طويلة وواسعة قليلًا من الكتف (كمّ أسقف خفيف)، تضيق عند المعصم في كفّة بثلاثة أزرار لؤلؤ.</dd></div>
+          <div><dt>الحجاب</dt><dd>لفّة من الشيفون الحريري العاجي، تغطي الصدر والكتفين بطبقة منسدلة ناعمة، وفوق الجبهة طوق رفيع من اللؤلؤ والكريستال الصغير.</dd></div>
+          <div><dt>القماش</dt><dd>كريب ساتان سميك مطفي للجسم، وفوقه طبقة أورغنزا شفافة على التنورة بلمسة ليلكية تظهر فقط في الضوء.</dd></div>
+          <div><dt>التطريز</dt><dd>حبات لؤلؤ صغيرة هي «العُقد»، وخيوط فضية رفيعة بينها هي «الأوزان». كثيفة على الصدر والأكمام كطبقات الشبكة، ثم تخفّ تدريجيًا حتى تصبح نقاطًا متفرقة.</dd></div>
+          <div><dt>الطرحة</dt><dd>تول ناعم بطول كاثيدرال يتجاوز الذيل، وعلى حافتها السفلية آية مطرّزة بخيط فضي بخط الرقعة.</dd></div>
+          <div><dt>الذيل</dt><dd>متوسط وقابل للفك، لتتحركي بحرية بعد الزفّة.</dd></div>
+          <div><dt>شيء أزرق</dt><dd>شريط حرير كحلي مخفي تحت حزام اللؤلؤ، بلون عرضك عن الذكاء الاصطناعي نفسه.</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <h2>الخامات</h2>
+        <div class="swatches">
+          <div class="swatch"><div class="chip crepe"></div><b>كريب ساتان مطفي</b><span>عاجي لؤلؤي، للجسم والأكمام</span></div>
+          <div class="swatch"><div class="chip organza"></div><b>أورغنزا حريرية</b><span>طبقة التنورة، بلمسة ليلكية</span></div>
+          <div class="swatch"><div class="chip ribbon"></div><b>شريط حرير كحلي</b><span><span class="code">#1E1B4B</span> تحت الحزام</span></div>
+        </div>
+      </section>
+
+      <section class="motif">
+        <h2 style="margin:0">التطريز عن قرب</h2>
+        <svg id="motif" viewBox="0 0 480 150" role="img" aria-label="تفصيل التطريز: لؤلؤ متصل بخيوط فضية في طبقات"></svg>
+        <p>ثلاث طبقات من اللؤلؤ تتصل كل حبة فيها بأقرب حبتين في الطبقة التالية، تمامًا كالرسم الذي تشرحينه لطلابك عن الشبكات العصبية.</p>
+      </section>
+
+      <section>
+        <p class="verse">وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+        <p class="verse-src">سورة الروم، الآية ٢١. تُطرَّز على حافة الطرحة لأن فيها اسمك.</p>
+      </section>
+
+      <section>
+        <h2>لماذا يشبهك هذا التصميم</h2>
+        <ul class="why">
+          <li><b>مهندسة تُعلّم الذكاء الاصطناعي</b><span>فجاء التطريز شبكة عصبية من اللؤلؤ، لا يفهم سرّها إلا من يعرفك.</span></li>
+          <li><b>ذوق منظّم وهادئ</b><span>عرضك التقديمي نظيف ومرتب بألوان الكحلي والليلكي، فالفستان خطوطه بسيطة ولمعانه خفيف.</span></li>
+          <li><b>اسمك رحمة</b><span>فكانت الآية التي تجمع المودة والرحمة هي توقيع الفستان.</span></li>
+        </ul>
+      </section>
+
+      <p class="note">ما أعرفه عنك قليل: اسمك، وأنك مهندسة تشرحين الذكاء الاصطناعي، وألوان عرضك التقديمي. لو أخبرتني بذوقك (منفوش أم ناعم، لامع أم مطفي، عاجي أم أبيض ناصع) أعدّل التصميم ليصبح أقرب إليك.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function rng(seed) {
+    return function () {
+      seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function pearl(parent, x, y, r, opacity) {
+    el("circle", { cx: x.toFixed(1), cy: y.toFixed(1), r: r, "fill-opacity": opacity, "stroke-opacity": opacity }, parent);
+  }
+  // Each node links to its two nearest nodes in the next layer.
+  function link(parent, layers, maxLayer, opacityOf) {
+    for (var i = 0; i < Math.min(layers.length - 1, maxLayer); i++) {
+      layers[i].forEach(function (a) {
+        layers[i + 1].slice().sort(function (p, q) {
+          return Math.abs(p[0] - a[0]) - Math.abs(q[0] - a[0]);
+        }).slice(0, 2).forEach(function (b) {
+          el("line", { x1: a[0].toFixed(1), y1: a[1].toFixed(1), x2: b[0].toFixed(1), y2: b[1].toFixed(1), "stroke-opacity": opacityOf(a[1]) }, parent);
+        });
+      });
+    }
+  }
+
+  // Embroidery on the dress
+  var rand = rng(21);
+  var net = document.getElementById("net");
+  var lines = el("g", { stroke: "var(--thread)", "stroke-width": ".7", fill: "none" }, net);
+  var dots = el("g", { fill: "var(--pearl)", stroke: "var(--pearl-edge)", "stroke-width": ".5" }, net);
+  function halfWidth(y) {
+    if (y <= 300) return 38 - (y - 200) * 0.03;
+    return 36 + 94 * Math.pow((y - 300) / 390, 1.15);
+  }
+  function fade(y) { return y < 300 ? 1 : Math.max(0.2, 1 - (y - 300) / 260); }
+  var rows = [214, 240, 266, 292, 326, 366, 412, 462];
+  var layers = rows.map(function (y) {
+    var w = halfWidth(y) - 6, n = Math.max(4, Math.round((w * 2) / 17)), row = [];
+    for (var i = 0; i < n; i++) {
+      var x = 200 - w + (2 * w * (i + 0.5)) / n + (rand() - 0.5) * 6;
+      row.push([x, y + (rand() - 0.5) * 6]);
+    }
+    return row;
+  });
+  link(lines, layers, 6, fade);
+  layers.forEach(function (row) {
+    row.forEach(function (p) { pearl(dots, p[0], p[1], p[1] < 300 ? 2.4 : 2, fade(p[1])); });
+  });
+  // Scattered pearls fading toward the hem
+  for (var s = 0; s < 46; s++) {
+    var y = 480 + rand() * 200, w = halfWidth(y) - 10;
+    pearl(dots, 200 + (rand() * 2 - 1) * w, y, 1.4, Math.max(0.15, 0.6 - (y - 480) / 400));
+  }
+  // Sleeves: a zigzag chain down each arm
+  var centers = [[214, 152], [244, 148], [274, 144], [304, 141], [334, 140], [364, 139], [388, 140]];
+  [1, -1].forEach(function (dir) {
+    var chain = centers.map(function (c, i) {
+      var x = c[1] + (i % 2 ? 5 : -5);
+      return [dir === 1 ? x : 400 - x, c[0]];
+    });
+    for (var i = 0; i < chain.length - 1; i++) {
+      el("line", { x1: chain[i][0], y1: chain[i][1], x2: chain[i + 1][0], y2: chain[i + 1][1] }, lines);
+    }
+    chain.forEach(function (p) { pearl(dots, p[0], p[1], 2.2, 1); });
+  });
+
+  // Belt pearls
+  var belt = document.getElementById("belt");
+  for (var bx = 167; bx <= 233; bx += 6) pearl(belt, bx, 300, 2.6, 1);
+
+  // Crown: pearls along a gentle arc, larger in the middle
+  var tiara = document.getElementById("tiara");
+  for (var t = 0; t <= 12; t++) {
+    var u = t / 12, x = 176 + 48 * u, yy = (1 - u) * (1 - u) * 102 + 2 * (1 - u) * u * 86 + u * u * 102;
+    pearl(tiara, x, yy, t === 6 ? 3.6 : (t % 2 ? 1.9 : 2.6), 1);
+  }
+
+  // Close-up of the motif
+  var m = document.getElementById("motif"), mr = rng(7);
+  var ml = el("g", { stroke: "var(--thread)", "stroke-width": "1.1", fill: "none" }, m);
+  var md = el("g", { fill: "var(--pearl)", stroke: "var(--pearl-edge)", "stroke-width": ".8" }, m);
+  var counts = [4, 6, 5], mLayers = counts.map(function (n, li) {
+    var row = [];
+    for (var i = 0; i < n; i++) row.push([40 + (400 * (i + 0.5)) / n + (mr() - 0.5) * 18, 28 + li * 47 + (mr() - 0.5) * 10]);
+    return row;
+  });
+  link(ml, mLayers, 2, function () { return 0.9; });
+  mLayers.forEach(function (row, li) {
+    row.forEach(function (p) { el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: 7 - li }, md); });
+  });
+})();
+</script>
