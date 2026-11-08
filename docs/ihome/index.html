@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>iHome · AI-Powered Smart Home Systems</title>
-<meta name="description" content="iHome: an AI-powered smart home system built into the home during construction. Final project files: report, presentation and brochures.">
+<meta name="description" content="iHome: an AI-powered smart home system built into the home during construction. Contact us for a free home consultation.">
 <meta name="theme-color" content="#0C373C">
-<meta property="og:title" content="iHome · Your dream, our reality."><meta property="og:description" content="AI-powered smart home systems, built in from the ground up. Project report, presentation and brochures.">
+<meta property="og:title" content="iHome · Your dream, our reality."><meta property="og:description" content="AI-powered smart home systems, built in from the ground up. Contact us for a free home consultation.">
 <meta property="og:image" content="https://rahmaoshba.github.io/RahmaOshba/ihome/assets/og.jpg"><meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C373C'/%3E%3Cpath d='M12 50V30L32 14l20 16' fill='none' stroke='%23DDAA5F' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 50h40' stroke='%23DDAA5F' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='36' r='8' fill='none' stroke='%23F0C27A' stroke-width='4'/%3E%3Cpath d='M32 26v9' stroke='%23F0C27A' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,17 +141,20 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 .badge{position:absolute;top:-12px;right:18px;background:var(--gold4);color:var(--teal);font-weight:900;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 .note{margin-top:18px;font-size:14px;font-style:italic;color:var(--muted)}
 
-/* files */
-.docs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.doc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
-.doc.featured{border-color:var(--gold4);box-shadow:0 8px 24px rgba(192,138,69,.14)}
-.doc-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--teal);color:var(--gold3);margin-bottom:14px}
-.doc h3{font-weight:900;font-size:20px;color:var(--teal);margin-bottom:4px}
-.doc p{font-size:15px;margin-bottom:18px}
-.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
-.doc .btn{background:var(--cream);color:var(--teal);font-size:14.5px;padding:10px 16px}
-.doc .btn small{font-weight:400;font-size:12px;opacity:.75}
-.doc .btn.primary{background:var(--teal);color:#fff}
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;margin-top:4px}
+.c-card{border-radius:18px;padding:26px;background:#fff;border:1px solid var(--line)}
+.c-card small{display:block;font-weight:900;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.c-hot{background:var(--teal);border-color:var(--teal);color:#fff;background-image:radial-gradient(circle at 100% 0,rgba(240,194,122,.2),transparent 55%)}
+.c-hot small{color:var(--gold3)}
+.c-num{display:block;font-weight:900;font-size:clamp(46px,9vw,68px);line-height:1;color:var(--gold3);margin:6px 0 12px;letter-spacing:.02em}
+.c-hot p{color:rgba(255,255,255,.82);font-size:15.5px}
+.socials{list-style:none;padding:0;margin-top:16px;display:grid;gap:14px}
+.socials li{display:flex;align-items:center;gap:14px}
+.s-ic{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--teal);color:var(--gold3);padding:11px}
+.s-ic svg{width:100%;height:100%}
+.socials b{display:block;font-weight:900;font-size:16.5px;color:var(--teal);line-height:1.25}
+.socials em{font-style:normal;font-size:13.5px;color:var(--muted)}
 
 /* team */
 .team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
@@ -185,7 +188,7 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 
 @media (max-width:900px){
   .demo{grid-template-columns:1fr}
-  .mv,.docs{grid-template-columns:1fr}
+  .mv,.contact{grid-template-columns:1fr}
   .advs,.team,.pkgs{grid-template-columns:1fr 1fr}
 }
 @media (max-width:600px){
@@ -199,14 +202,14 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 </style></head>
 <body>
 <header class="hero">
-  <nav class="nav"><a href="#try">Try it</a><a href="#about">About</a><a href="#files">Files</a><a href="#team">Team</a></nav>
+  <nav class="nav"><a href="#try">Try it</a><a href="#about">About</a><a href="#team">Team</a><a href="#contact">Contact</a></nav>
   <div class="hero-in">
     <h1><img class="hero-logo" src="assets/logo-light.png" width="900" height="371" alt="iHome: Your dream, our reality."></h1>
     <p class="kicker">AI-powered smart home systems</p>
     <p class="headline">Smart living, <em>built in</em> from the ground up.</p>
     <p class="lead">Lighting, climate, security and voice control, designed into the home while it is being built and run from one app.</p>
     <div class="cta">
-      <a class="btn gold" href="#files"><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6"/></svg>Project files</a>
+      <a class="btn gold" href="#contact"><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h3.5l1.5 4.5-2 1.5a11 11 0 0 0 6 6l1.5-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Contact us</a>
       <a class="btn ghost" href="#try"><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 16l.7 1.8 1.8.7-1.8.7L19 21l-.7-1.8-1.8-.7 1.8-.7z"/></svg>Try the smart home</a>
     </div>
   </div>
@@ -1071,21 +1074,32 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
   </div>
 </section>
 
-<section id="files" class="band">
-  <div class="wrap">
-    <p class="eb reveal">All project files</p>
-    <h2 class="reveal">Project files</h2>
-    <p class="sub reveal">Open on your phone or download.</p>
-    <div class="docs"><article class="doc reveal featured" style="--d:0ms"><span class="doc-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M9 13h6M9 17h6"/></svg></span><h3>Final Report</h3><p>The full project: mission, scope, schedule, budget, risks, quality and testing.</p><div class="btns"><a class="btn primary" href="files/iHome_Final_Report.pdf" target=_blank rel=noopener><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open PDF<small>PDF · 1.3 MB</small></a></div></article><article class="doc reveal featured" style="--d:70ms"><span class="doc-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM8 21h8M12 17v4"/></svg></span><h3>Final Presentation</h3><p>The slides we present: the problem, our solution, the market and the team.</p><div class="btns"><a class="btn primary" href="files/iHome_Presentation.pdf" target=_blank rel=noopener><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open PDF<small>PDF · 2.7 MB</small></a><a class="btn " href="files/iHome_Presentation.pptx" download><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>PowerPoint<small>PPTX · 5.1 MB</small></a></div></article><article class="doc reveal" style="--d:140ms"><span class="doc-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></span><h3>Tri-fold Brochure</h3><p>Print-ready, double-sided A4 brochure with 3 mm bleed.</p><div class="btns"><a class="btn primary" href="files/iHome_Brochure_Print.pdf" target=_blank rel=noopener><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open PDF<small>PDF · 1.1 MB</small></a></div></article><article class="doc reveal" style="--d:210ms"><span class="doc-ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5zM4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3"/></svg></span><h3>Marketing Brochure</h3><p>Seven-page A4 brochure: mission, vision, inside an iHome, packages and team.</p><div class="btns"><a class="btn primary" href="files/iHome_Marketing_Brochure.pdf" target=_blank rel=noopener><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Open PDF<small>PDF · 2.6 MB</small></a></div></article></div>
-  </div>
-</section>
-
-<section id="team" class="band cream">
+<section id="team" class="band">
   <div class="wrap">
     <p class="eb reveal">The people behind iHome</p>
     <h2 class="reveal">Six engineers, one home</h2>
     <div class="team"><article class="mem reveal" style="--d:0ms"><span class="ava">MA</span><h3>Eng. Mazen Adel</h3><p class="role">Project Manager</p><p>Planning, coordination and progress tracking</p></article><article class="mem reveal" style="--d:60ms"><span class="ava">MA</span><h3>Eng. Mohamed Ayman</h3><p class="role">Software & Testing</p><p>Mobile application, testing and bug fixing</p></article><article class="mem reveal" style="--d:120ms"><span class="ava">RM</span><h3>Eng. Rahma Mohammed</h3><p class="role">Business Development</p><p>Suppliers, procurement and documentation</p></article><article class="mem reveal" style="--d:180ms"><span class="ava">RS</span><h3>Eng. Rana Saber</h3><p class="role">Hardware & System Architecture</p><p>Smart lighting, climate control and installation</p></article><article class="mem reveal" style="--d:240ms"><span class="ava">GM</span><h3>Eng. Gehad Mohammed</h3><p class="role">Security Engineer</p><p>Smart security, risk assessment and cybersecurity</p></article><article class="mem reveal" style="--d:300ms"><span class="ava">AK</span><h3>Eng. Asmaa Khaled</h3><p class="role">Network & IoT</p><p>Network design, device connectivity and voice control</p></article></div>
     <div class="sup reveal"><span class="dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14l-1.5 7 5-2.5 5 2.5-1.5-7"/></svg></span><div><small>Supervised by</small><b>Dr. Jacqueline Wagdy Labib</b><span>National Telecommunication Institute (NTI)</span></div></div>
+  </div>
+</section>
+
+<section id="contact" class="band cream">
+  <div class="wrap">
+    <p class="eb reveal">Contact us</p>
+    <h2 class="reveal">Building a new home? Let’s talk.</h2>
+    <p class="sub reveal">Plan your smart home on the blueprint, before the walls go up. Call us for a free home consultation.</p>
+    <div class="contact">
+      <article class="c-card c-hot reveal">
+        <span class="dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4.5-2 1.5a11 11 0 0 0 6 6l1.5-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+        <small>Hotline</small>
+        <b class="c-num">19466</b>
+        <p>Free home consultation<br>Saturday – Thursday · 9 AM – 9 PM</p>
+      </article>
+      <article class="c-card reveal" style="--d:80ms">
+        <small>Follow us</small>
+        <ul class="socials"><li><span class="s-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span><b>iHome.SmartLiving</b><em>Facebook</em></span></li><li><span class="s-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>@ihome.smartliving</b><em>Instagram</em></span></li><li><span class="s-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><span><b>@ihome.smartliving</b><em>TikTok</em></span></li><li><span class="s-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span><b>iHome Smart Living</b><em>LinkedIn</em></span></li></ul>
+      </article>
+    </div>
   </div>
 </section>
 </main>
