@@ -95,7 +95,7 @@ footer b{color:#fff;font-family:Rubik,sans-serif;font-size:20px}
 .mode{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--light);border-radius:20px;padding:3px 10px}
 .reset{display:inline-flex;align-items:center;gap:6px;font:700 13px 'Public Sans',sans-serif;color:var(--navy);background:none;border:1.5px solid var(--line);border-radius:20px;padding:5px 12px;cursor:pointer}
 .reset:hover{border-color:var(--teal);color:var(--teal)}
-.lab-main{display:grid;grid-template-columns:1fr 300px}
+.lab-main{display:block}
 .lab-scene{background:#0b2238;min-width:0}.lab-scene svg{display:block;width:100%;height:auto}
 .skyb{fill:#9FD3E8;transition:fill .8s}.night .skyb{fill:#0b2238}
 .stars circle{fill:#fff;opacity:0;transition:opacity .8s}.night .stars circle{opacity:.9}
@@ -127,19 +127,6 @@ footer b{color:#fff;font-family:Rubik,sans-serif;font-size:20px}
 @keyframes blink{50%{opacity:0}}
 @keyframes siren{50%{fill:#C24A40}}
 @keyframes ping{0%{box-shadow:0 0 0 0 #2E9E5E88}80%,100%{box-shadow:0 0 0 8px #2E9E5E00}}
-.dash{background:var(--navy);color:#D9E6EA;position:relative;min-width:0}.dash-in{position:absolute;inset:0;padding:14px;display:flex;flex-direction:column;gap:8px}
-.dash-h{font:700 13px 'Public Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9FB3B8}.dash-h.small{margin-top:4px}
-.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.kpi{background:#ffffff0f;border:1px solid #ffffff1a;border-radius:12px;padding:8px 10px}
-.kpi span{display:block;font-size:11px;color:#9FB3B8;line-height:1.3}
-.kpi b{display:block;font:700 22px Rubik,sans-serif;color:#fff;margin-top:2px;font-variant-numeric:tabular-nums;transition:color .4s}
-.kpi em{display:block;font-style:normal;font-size:11px;font-weight:700;color:#9FB3B8;margin-top:2px}
-.kpi.good b{color:#5EE0A0}.kpi.good em{color:#5EE0A0}.kpi.bad b{color:#FF8A80}.kpi.bad em{color:#FF8A80}
-.sys{display:flex;justify-content:space-between;align-items:center;background:#ffffff0f;border-radius:12px;padding:8px 12px;font-size:13px}.sys b{color:#fff;font-family:Rubik,sans-serif}
-.log{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;flex:1;min-height:0;overflow:auto;font-size:12.5px;line-height:1.4}
-.log li{flex:none;display:grid;grid-template-columns:auto auto 1fr;gap:8px;align-items:start;background:#ffffff0a;border-radius:10px;padding:7px 9px;animation:up .35s both}
-.log time{font-variant-numeric:tabular-nums;color:#9FB3B8}.log .lv{font-size:10px;font-weight:700;letter-spacing:.06em;border-radius:6px;padding:1px 6px;margin-top:1px}
-.lv.info{background:#17706F;color:#fff}.lv.ok{background:#2E9E5E;color:#fff}.lv.alert{background:#C24A40;color:#fff}.lv.sys{background:#ffffff26;color:#fff}
 .lab-ctrl{padding:16px 18px 14px;border-top:1px solid var(--line)}
 .sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .sw{display:flex;align-items:center;gap:10px;text-align:left;font:inherit;background:var(--light);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;transition:border-color .25s,background .25s;min-width:0}
@@ -159,7 +146,7 @@ footer b{color:#fff;font-family:Rubik,sans-serif;font-size:20px}
 .sw:focus-visible,.ab:focus-visible,.reset:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .lab-note{font-size:12px;color:var(--muted);margin-top:12px}
 @media (max-width:980px){.sw-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:860px){.lab{display:flex;flex-direction:column}.lab-main{display:contents}.lab-scene{order:1}.lab-ctrl{order:2;border-top:0}.dash{order:3}.dash-in{position:static}.log{max-height:200px}}
+
 @media (max-width:520px){.sw-grid{grid-template-columns:1fr}.ab{flex:1 1 100%;justify-content:center}.ab.gold{margin-left:0}.kpi b{font-size:21px}}
 
 /* nav */
@@ -222,7 +209,7 @@ section[id]{scroll-margin-top:60px}
 
 <section id="try" style="background:var(--mint)"><div class="wrap">
   <p class="eyebrow reveal">Interactive demo</p><h2 class="reveal">Switch on the smart city</h2>
-  <p class="lab-intro reveal">Turn on each system and watch how the city responds. Every event is sent to the control center, the brain of the city, and shown live on the dashboard.</p>
+  <p class="lab-intro reveal">Turn on each system and watch how the city responds. Every system talks to the control center, the brain of the city.</p>
   <div class="lab night reveal" id="lab">
     <div class="lab-bar">
       <span class="live"><i></i>Roaya City · Live simulation</span>
@@ -277,18 +264,7 @@ section[id]{scroll-margin-top:60px}
           <g class="stag c-tag"><rect x="592" y="236" width="70" height="18" rx="9"/><text x="627" y="249">AI camera</text></g>
         </svg>
       </div>
-      <aside class="dash" aria-label="Control center dashboard"><div class="dash-in">
-        <p class="dash-h">Control center</p>
-        <div class="kpis">
-          <div class="kpi"><span>Wait at signal</span><b id="kWait">90 s</b><em id="kWaitD">Fixed timer</em></div>
-          <div class="kpi"><span>Solar share</span><b id="kSolar">0%</b><em id="kSolarD">Target 50%</em></div>
-          <div class="kpi"><span>Lit streets</span><b id="kLight">0%</b><em id="kLightD">Lights off</em></div>
-          <div class="kpi"><span>Emergency response</span><b id="kEm">–</b><em id="kEmD">Target &lt; 8 min</em></div>
-        </div>
-        <div class="sys"><span>Systems online</span><b id="kSys">0 / 4</b></div>
-        <p class="dash-h small">Event log</p>
-        <ol id="feed" class="log" aria-live="polite"></ol>
-      </div></aside>
+
     </div>
     <div class="lab-ctrl">
       <div class="sw-grid">
@@ -302,7 +278,7 @@ section[id]{scroll-margin-top:60px}
         <button type="button" class="ab" id="dayBtn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg><span id="dayLbl">Switch to day</span></button>
         <button type="button" class="ab gold" id="allBtn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>Switch everything on</button>
       </div>
-      <p class="lab-note">Simulation for illustration. Figures reflect Roaya's project targets, not live data.</p>
+      <p class="lab-note">Simulation for illustration only.</p>
     </div>
   </div>
 </div></section>
@@ -403,16 +379,16 @@ const feed=$('feed'),cars=$('cars'),amb=$('amb'),crash=lab.querySelector('.crash
 const later=(ms,f)=>timers.push(setTimeout(f,ms));
 const hhmm=()=>String(Math.floor(mins/60)%24).padStart(2,'0')+':'+String(mins%60).padStart(2,'0');
 const tick=(m=1)=>{mins+=m;$('clock').textContent=hhmm()};
-const log=(lv,msg)=>{tick();const li=document.createElement('li');
+const log=(lv,msg)=>{tick();if(!feed)return;const li=document.createElement('li');
   li.innerHTML=`<time>${hhmm()}</time><span class="lv ${lv}">${{info:'INFO',ok:'OK',alert:'ALERT',sys:'SYS'}[lv]}</span><span></span>`;
   li.lastChild.textContent=msg;feed.prepend(li);while(feed.children.length>6)feed.lastChild.remove()};
 const tl=(c)=>lab.querySelectorAll('.tl').forEach(e=>e.classList.toggle('on',e.classList.contains(c)));
-const kpi=(id,val,note,cls)=>{$(id).textContent=val;$(id+'D').textContent=note;$(id).parentElement.className='kpi'+(cls?' '+cls:'')};
+const kpi=(id,val,note,cls)=>{if(!$(id))return;$(id).textContent=val;$(id+'D').textContent=note;$(id).parentElement.className='kpi'+(cls?' '+cls:'')};
 function dash(){
   kpi('kWait',st.t?'15 s':'90 s',st.t?'Adaptive signal':'Fixed timer',st.t?'good':'');
   kpi('kSolar',st.s?'50%':'0%',st.s?'Target reached':'Target 50%',st.s?'good':'');
   kpi('kLight',!st.l?'0%':st.night?'100%':'Auto',!st.l?'Lights off':st.night?'Streets lit':'Off in daylight',st.l?'good':'');
-  $('kSys').textContent=['t','l','s','c'].filter(k=>st[k]).length+' / 4';
+  if($('kSys'))$('kSys').textContent=['t','l','s','c'].filter(k=>st[k]).length+' / 4';
   $('mode').textContent=st.night?'Night':'Day';$('dayLbl').textContent=st.night?'Switch to day':'Switch to night'}
 const msg={
   t:[['ok','Traffic sensors online. Road clear, signal switched to green.'],['sys','Traffic signal back on a fixed timer.']],
@@ -441,8 +417,8 @@ cb.addEventListener('click',()=>{if(busy)return;busy=true;cb.disabled=true;crash
 $('resetBtn').addEventListener('click',()=>{timers.forEach(clearTimeout);timers=[];busy=false;cb.disabled=false;
   ['t','l','s','c'].forEach(k=>{st[k]=false;lab.querySelector(`[data-k="${k}"]`).setAttribute('aria-pressed',false);lab.classList.remove(k+'-on')});
   st.night=true;lab.classList.add('night');cars.style.opacity=1;tl('red');crash.classList.remove('show');amb.classList.remove('go','leave');cam.classList.remove('flash');
-  mins=22*60;$('clock').textContent=hhmm();feed.innerHTML='';kpi('kEm','–','Target < 8 min','');dash();log('sys','Simulation reset. Turn on a system to begin.')});
-tl('red');dash();feed.innerHTML='';mins-=1;log('sys','Simulation ready. Turn on a system to begin.');
+  mins=22*60;$('clock').textContent=hhmm();if(feed)feed.innerHTML='';kpi('kEm','–','Target < 8 min','');dash();log('sys','Simulation reset. Turn on a system to begin.')});
+tl('red');dash();if(feed)feed.innerHTML='';mins-=1;log('sys','Simulation ready. Turn on a system to begin.');
 })();
 (()=>{const nav=document.getElementById('nav'),hero=document.getElementById('top');if(!nav)return;
 new IntersectionObserver(([e])=>nav.classList.toggle('show',!e.isIntersecting),{threshold:.05}).observe(hero);
