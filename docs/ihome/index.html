@@ -3,6 +3,7 @@
 <title>iHome · AI-Powered Smart Home Systems</title>
 <meta name="description" content="iHome: an AI-powered smart home system built into the home during construction. Contact us for a free home consultation.">
 <meta name="theme-color" content="#0C373C">
+<script>document.documentElement.className += " js";</script>
 <meta property="og:title" content="iHome · Your dream, our reality."><meta property="og:description" content="AI-powered smart home systems, built in from the ground up. Contact us for a free home consultation.">
 <meta property="og:image" content="https://rahmaoshba.github.io/RahmaOshba/ihome/assets/og.jpg"><meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C373C'/%3E%3Cpath d='M12 50V30L32 14l20 16' fill='none' stroke='%23DDAA5F' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 50h40' stroke='%23DDAA5F' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='36' r='8' fill='none' stroke='%23F0C27A' stroke-width='4'/%3E%3Cpath d='M32 26v9' stroke='%23F0C27A' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -53,20 +54,26 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 
 /* interactive day */
 .scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.tryit{border:0;padding:0;margin:0;min-width:0}
+.sr{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.sr-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .scene{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;
-  font:inherit;color:var(--teal);cursor:pointer;text-align:left;transition:background .2s,border-color .2s,color .2s}
+  font:inherit;color:var(--teal);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;text-align:left;transition:background .2s,border-color .2s,color .2s}
 .scene .ico{color:var(--gold)}
 .scene b{display:block;font-weight:900;font-size:15px;line-height:1.2}
 .scene small{display:block;font-size:12.5px;color:var(--muted)}
 .scene:hover{border-color:var(--gold4)}
-.scene[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
-.scene[aria-pressed=true] small{color:rgba(255,255,255,.7)}
-.scene[aria-pressed=true] .ico{color:var(--gold3)}
-.scene:focus-visible,.btn:focus-visible,.nav a:focus-visible{outline:3px solid var(--gold4);outline-offset:2px}
+#sc-morning:checked~.scenes .scene[for=sc-morning],#sc-away:checked~.scenes .scene[for=sc-away],#sc-evening:checked~.scenes .scene[for=sc-evening],#sc-night:checked~.scenes .scene[for=sc-night]{background:var(--teal);border-color:var(--teal);color:#fff}
+#sc-morning:checked~.scenes .scene[for=sc-morning] small,#sc-away:checked~.scenes .scene[for=sc-away] small,#sc-evening:checked~.scenes .scene[for=sc-evening] small,#sc-night:checked~.scenes .scene[for=sc-night] small{color:rgba(255,255,255,.7)}
+#sc-morning:checked~.scenes .scene[for=sc-morning] .ico,#sc-away:checked~.scenes .scene[for=sc-away] .ico,#sc-evening:checked~.scenes .scene[for=sc-evening] .ico,#sc-night:checked~.scenes .scene[for=sc-night] .ico{color:var(--gold3)}
+#sc-morning:focus-visible~.scenes .scene[for=sc-morning],#sc-away:focus-visible~.scenes .scene[for=sc-away],#sc-evening:focus-visible~.scenes .scene[for=sc-evening],#sc-night:focus-visible~.scenes .scene[for=sc-night]{outline:3px solid var(--gold4);outline-offset:2px}
+.btn:focus-visible,.nav a:focus-visible{outline:3px solid var(--gold4);outline-offset:2px}
 .demo{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:stretch}
 .room{border-radius:18px;overflow:hidden;background:#E6D9C3;box-shadow:0 10px 30px rgba(12,55,60,.14)}
 .room svg{height:100%;object-fit:cover}
 .panel{background:#fff;border-radius:18px;padding:22px;border:1px solid var(--line);display:flex;flex-direction:column}
+.pst{display:none;flex-direction:column;flex:1}
+#sc-morning:checked~.demo .pst-morning,#sc-away:checked~.demo .pst-away,#sc-evening:checked~.demo .pst-evening,#sc-night:checked~.demo .pst-night{display:flex}
 .p-time{font-weight:900;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .panel h3{font-weight:900;font-size:24px;color:var(--teal);margin:4px 0 6px}
 .p-desc{font-size:15px;min-height:4.6em}
@@ -86,20 +93,20 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 .room .curt-l{transform-origin:left center}.room .curt-r{transform-origin:right center}
 .room .day{opacity:0}.room .air{opacity:0}.room .voice{opacity:0}.room .lockglow{opacity:.25}
 .room .lockled,.room .camled{transition:fill .4s}
-.room[data-scene=morning] .lt,.room[data-scene=away] .lt,.room[data-scene=night] .lt{opacity:0}
-.room[data-scene=morning] .day,.room[data-scene=away] .day{opacity:1}
-.room[data-scene=away] .curt-l,.room[data-scene=night] .curt-l{transform:scaleX(2.65)}
-.room[data-scene=away] .curt-r,.room[data-scene=night] .curt-r{transform:scaleX(2.65)}
-.room[data-scene=evening] .air{opacity:.9}.room[data-scene=night] .air{opacity:.35}
-.room[data-scene=evening] .voice{opacity:1}
-.room[data-scene=evening] .tv-off{opacity:0}
-.room[data-scene=away] .dim{opacity:.12}.room[data-scene=night] .dim{opacity:.5}
-.room[data-scene=away] .lockglow,.room[data-scene=night] .lockglow{opacity:1}
-.room[data-scene=away] .lockled,.room[data-scene=night] .lockled{fill:#7FD3B8}
-.room[data-scene=morning] .lockled,.room[data-scene=evening] .lockled{fill:#DDAA5F}
-.room[data-scene=away] .camled,.room[data-scene=night] .camled{fill:#E0533D;animation:blink 1.2s steps(2,start) infinite}
-.room[data-scene=evening] .air path{animation:drift 2.4s ease-in-out infinite}
-.room[data-scene=evening] .voice{animation:pulse 1.6s ease-in-out infinite}
+#sc-morning:checked~.demo .room .lt,#sc-away:checked~.demo .room .lt,#sc-night:checked~.demo .room .lt{opacity:0}
+#sc-morning:checked~.demo .room .day,#sc-away:checked~.demo .room .day{opacity:1}
+#sc-away:checked~.demo .room .curt-l,#sc-night:checked~.demo .room .curt-l{transform:scaleX(2.65)}
+#sc-away:checked~.demo .room .curt-r,#sc-night:checked~.demo .room .curt-r{transform:scaleX(2.65)}
+#sc-evening:checked~.demo .room .air{opacity:.9}#sc-night:checked~.demo .room .air{opacity:.35}
+#sc-evening:checked~.demo .room .voice{opacity:1}
+#sc-evening:checked~.demo .room .tv-off{opacity:0}
+#sc-away:checked~.demo .room .dim{opacity:.12}#sc-night:checked~.demo .room .dim{opacity:.5}
+#sc-away:checked~.demo .room .lockglow,#sc-night:checked~.demo .room .lockglow{opacity:1}
+#sc-away:checked~.demo .room .lockled,#sc-night:checked~.demo .room .lockled{fill:#7FD3B8}
+#sc-morning:checked~.demo .room .lockled,#sc-evening:checked~.demo .room .lockled{fill:#DDAA5F}
+#sc-away:checked~.demo .room .camled,#sc-night:checked~.demo .room .camled{fill:#E0533D;animation:blink 1.2s steps(2,start) infinite}
+#sc-evening:checked~.demo .room .air path{animation:drift 2.4s ease-in-out infinite}
+#sc-evening:checked~.demo .room .voice{animation:pulse 1.6s ease-in-out infinite}
 @keyframes blink{to{opacity:.15}}
 @keyframes drift{50%{transform:translateY(6px)}}
 @keyframes pulse{50%{opacity:.45}}
@@ -178,11 +185,11 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 .top{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--gold3);font-weight:700;text-decoration:none}
 
 /* reveal on scroll */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease var(--d,0ms),transform .6s ease var(--d,0ms)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease var(--d,0ms),transform .6s ease var(--d,0ms)}
+.js .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
   .room *{animation:none!important;transition:none!important}
 }
 
@@ -490,9 +497,12 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
     <p class="eb reveal">Interactive</p>
     <h2 class="reveal">A day in an iHome</h2>
     <p class="sub reveal">Pick a time of day and watch the living room take care of itself.</p>
-    <div class="scenes reveal" role="group" aria-label="Time of day"><button type="button" class="scene" data-scene="morning" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span><b>Morning</b><small>6:30 AM</small></span></button><button type="button" class="scene" data-scene="away" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10M10 20v-5h4v5"/></svg><span><b>Away</b><small>8:00 AM</small></span></button><button type="button" class="scene" data-scene="evening" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span><b>Evening</b><small>6:00 PM</small></span></button><button type="button" class="scene" data-scene="night" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span><b>Night</b><small>11:00 PM</small></span></button></div>
-    <div class="demo reveal">
-      <div class="room" data-scene="evening"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 770" class="illu">
+    <fieldset class="tryit reveal">
+      <legend class="sr-text">Time of day</legend>
+      <input class="sr" type="radio" name="scene" id="sc-morning" value="morning"><input class="sr" type="radio" name="scene" id="sc-away" value="away"><input class="sr" type="radio" name="scene" id="sc-evening" value="evening" checked><input class="sr" type="radio" name="scene" id="sc-night" value="night">
+      <div class="scenes"><label class="scene" for="sc-morning"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span><b>Morning</b><small>6:30 AM</small></span></label><label class="scene" for="sc-away"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10M10 20v-5h4v5"/></svg><span><b>Away</b><small>8:00 AM</small></span></label><label class="scene" for="sc-evening"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span><b>Evening</b><small>6:00 PM</small></span></label><label class="scene" for="sc-night"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span><b>Night</b><small>11:00 PM</small></span></label></div>
+      <div class="demo">
+        <div class="room"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 770" class="illu">
 <defs>
 <linearGradient id="in-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5EEE2"/><stop offset="1" stop-color="#E6D9C3"/></linearGradient>
 <linearGradient id="in-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B98B5D"/><stop offset="1" stop-color="#8E643C"/></linearGradient>
@@ -765,14 +775,9 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
 <circle cx="891" cy="651" r="2" fill="#0C373C"/><circle cx="902" cy="651" r="2" fill="#0C373C"/>
 <rect class="dim" width="1400" height="800" fill="#04161A" opacity="0" pointer-events="none"/>
 </svg></div>
-      <aside class="panel" aria-live="polite">
-        <p class="p-time" id="p-time"></p>
-        <h3 id="p-title"></h3>
-        <p class="p-desc" id="p-desc"></p>
-        <ul class="devs"><li data-dev="lights"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></svg><span>Lights</span><b>–</b></li><li data-dev="curtains"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h18M5.5 3.5v17M18.5 3.5v17M5.5 3.5c0 6 2.5 11 5 17M18.5 3.5c0 6-2.5 11-5 17"/></svg><span>Curtains</span><b>–</b></li><li data-dev="ac"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0zM12 10v6.5"/></svg><span>A/C</span><b>–</b></li><li data-dev="lock"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></svg><span>Front door</span><b>–</b></li><li data-dev="cams"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM15.5 10.5l5-3v9l-5-3"/></svg><span>Cameras</span><b>–</b></li><li data-dev="voice"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg><span>Voice</span><b>–</b></li></ul>
-        <div class="energy"><span>Energy use</span><div class="bar"><i id="p-bar"></i></div><b id="p-energy"></b></div>
-      </aside>
-    </div>
+        <aside class="panel" aria-live="polite"><div class="pst pst-morning"><p class="p-time">6:30 AM</p><h3>Good morning</h3><p class="p-desc">Curtains open with the sunrise and the lights stay off. Daylight does the job.</p><ul class="devs"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></svg><span>Lights</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h18M5.5 3.5v17M18.5 3.5v17M5.5 3.5c0 6 2.5 11 5 17M18.5 3.5c0 6-2.5 11-5 17"/></svg><span>Curtains</span><b class=on>Open</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0zM12 10v6.5"/></svg><span>A/C</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></svg><span>Front door</span><b>Unlocked</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM15.5 10.5l5-3v9l-5-3"/></svg><span>Cameras</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg><span>Voice</span><b class=on>Ready</b></li></ul><div class="energy"><span>Energy use</span><div class="bar"><i style="width:18%"></i></div><b>Low</b></div></div><div class="pst pst-away"><p class="p-time">8:00 AM</p><h3>Away mode</h3><p class="p-desc">Doors lock, cameras start watching and the A/C switches to eco while nobody is home.</p><ul class="devs"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></svg><span>Lights</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h18M5.5 3.5v17M18.5 3.5v17M5.5 3.5c0 6 2.5 11 5 17M18.5 3.5c0 6-2.5 11-5 17"/></svg><span>Curtains</span><b>Closed</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0zM12 10v6.5"/></svg><span>A/C</span><b class=on>Eco</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></svg><span>Front door</span><b class=on>Locked</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM15.5 10.5l5-3v9l-5-3"/></svg><span>Cameras</span><b class=on>Recording</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg><span>Voice</span><b>Off</b></li></ul><div class="energy"><span>Energy use</span><div class="bar"><i style="width:10%"></i></div><b>Eco</b></div></div><div class="pst pst-evening"><p class="p-time">6:00 PM</p><h3>Welcome home</h3><p class="p-desc">The room is already 22°C. Say “Hey iHome, movie mode” and the lights and TV are ready.</p><ul class="devs"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></svg><span>Lights</span><b class=on>On</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h18M5.5 3.5v17M18.5 3.5v17M5.5 3.5c0 6 2.5 11 5 17M18.5 3.5c0 6-2.5 11-5 17"/></svg><span>Curtains</span><b class=on>Open</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0zM12 10v6.5"/></svg><span>A/C</span><b class=on>22°C</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></svg><span>Front door</span><b>Unlocked</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM15.5 10.5l5-3v9l-5-3"/></svg><span>Cameras</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg><span>Voice</span><b class=on>Listening</b></li></ul><div class="energy"><span>Energy use</span><div class="bar"><i style="width:58%"></i></div><b>Normal</b></div></div><div class="pst pst-night"><p class="p-time">11:00 PM</p><h3>Good night</h3><p class="p-desc">Lights off, doors locked and the alarm armed. Motion sensors keep watch until morning.</p><ul class="devs"><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.1V16h5v-.1c0-.8.4-1.6 1.1-2.1A6 6 0 0 0 12 3z"/></svg><span>Lights</span><b>Off</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.5h18M5.5 3.5v17M18.5 3.5v17M5.5 3.5c0 6 2.5 11 5 17M18.5 3.5c0 6-2.5 11-5 17"/></svg><span>Curtains</span><b>Closed</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0zM12 10v6.5"/></svg><span>A/C</span><b class=on>Sleep</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM8 11V8a4 4 0 0 1 8 0v3M12 15v2"/></svg><span>Front door</span><b class=on>Locked</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 7h11a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1zM15.5 10.5l5-3v9l-5-3"/></svg><span>Cameras</span><b class=on>Armed</b></li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg><span>Voice</span><b>Off</b></li></ul><div class="energy"><span>Energy use</span><div class="bar"><i style="width:14%"></i></div><b>Low</b></div></div></aside>
+      </div>
+    </fieldset>
   </div>
 </section>
 
@@ -1110,41 +1115,6 @@ h2{text-wrap:balance;font-weight:900;font-size:clamp(28px,5vw,40px);line-height:
   <a class="top" href="#"><svg class="b-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Back to top</a>
 </footer>
 <script>(function () {
-  var S = {
-    morning: { time: '6:30 AM', title: 'Good morning',
-      desc: 'Curtains open with the sunrise and the lights stay off. Daylight does the job.',
-      d: { lights: 'Off', curtains: 'Open', ac: 'Off', lock: 'Unlocked', cams: 'Off', voice: 'Ready' },
-      on: { curtains: 1, voice: 1 }, energy: 18, level: 'Low' },
-    away: { time: '8:00 AM', title: 'Away mode',
-      desc: 'Doors lock, cameras start watching and the A/C switches to eco while nobody is home.',
-      d: { lights: 'Off', curtains: 'Closed', ac: 'Eco', lock: 'Locked', cams: 'Recording', voice: 'Off' },
-      on: { ac: 1, lock: 1, cams: 1 }, energy: 10, level: 'Eco' },
-    evening: { time: '6:00 PM', title: 'Welcome home',
-      desc: 'The room is already 22°C. Say “Hey iHome, movie mode” and the lights and TV are ready.',
-      d: { lights: 'On', curtains: 'Open', ac: '22°C', lock: 'Unlocked', cams: 'Off', voice: 'Listening' },
-      on: { lights: 1, curtains: 1, ac: 1, voice: 1 }, energy: 58, level: 'Normal' },
-    night: { time: '11:00 PM', title: 'Good night',
-      desc: 'Lights off, doors locked and the alarm armed. Motion sensors keep watch until morning.',
-      d: { lights: 'Off', curtains: 'Closed', ac: 'Sleep', lock: 'Locked', cams: 'Armed', voice: 'Off' },
-      on: { ac: 1, lock: 1, cams: 1 }, energy: 14, level: 'Low' }
-  };
-  var room = document.querySelector('.room');
-  var btns = document.querySelectorAll('.scene');
-  function $(id) { return document.getElementById(id); }
-  function show(k) {
-    var s = S[k]; if (!s || !room) return;
-    room.setAttribute('data-scene', k);
-    btns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.scene === k ? 'true' : 'false'); });
-    $('p-time').textContent = s.time; $('p-title').textContent = s.title; $('p-desc').textContent = s.desc;
-    document.querySelectorAll('.devs li').forEach(function (li) {
-      var key = li.dataset.dev, b = li.querySelector('b');
-      b.textContent = s.d[key]; b.className = s.on[key] ? 'on' : '';
-    });
-    $('p-bar').style.width = s.energy + '%'; $('p-energy').textContent = s.level;
-  }
-  btns.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.scene); }); });
-  show('evening');
-
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
