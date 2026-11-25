@@ -35,6 +35,7 @@
 - `PCI-DSS/Notes/PCI_Notes_Dispute.pdf` — Dispute (التحدّي)
 - `PCI-DSS/Notes/PCI_Notes_DataRisks_PINBlock_Cert.pdf` — Data Risks · PIN Block/PVV · DEK/KEK · الشهادة (QSA/ROC/AOC)
 - `PCI-DSS/Notes/PCI_Notes_C2B_Versions.pdf` — C2B/B2B (SWIFT) + نسخ PCI + Superseded Requirements
+- `PCI-DSS/Notes/PCI_Notes_Issuer_Acquirer_Merchant.pdf` — Issuer/Acquirer/Merchant/Cardholder + Affected Services
 - `PCI-DSS/Notes/PCI_Notes_Roadmap.pdf` — خريطة الكورس
 
 ### 🖼️ Diagrams
