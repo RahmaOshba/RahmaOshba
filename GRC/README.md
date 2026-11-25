@@ -20,7 +20,8 @@
 ## 💳 PCI DSS v4.0.1 — Payment Card Industry Data Security Standard
 
 ### 📖 Master (المراجع الكاملة)
-- `PCI-DSS/Master/PCI_DSS_Complete_Bible.pdf` — **الملف الجامع الكامل** (17 قسم + كل الاختصارات) ⭐
+- `PCI-DSS/Master/PCI_DSS_Complete_Bilingual_Guide.pdf` — **الدليل النهائي الشامل عربي + إنجليزي** (24 قسم + كل البروسيسات + مسرد الاختصارات الكامل) ⭐⭐
+- `PCI-DSS/Master/PCI_DSS_Complete_Bible.pdf` — الملف الجامع الكامل (17 قسم + كل الاختصارات)
 - `PCI-DSS/Master/PCI_DSS_Master_Complete.pdf` — المرجع الكامل
 - `PCI-DSS/Master/Payment_Processes_Full_Detail.pdf` — بروسيسات الدفع خطوة بخطوة
 
