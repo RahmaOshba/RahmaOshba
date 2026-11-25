@@ -15,6 +15,12 @@
 - `SOC2/Notes/SOC2_Notes_Exceptions_Cycle.pdf` — كتابة الـ Exception + دورة المشروع
 - `SOC2/Notes/SOC2_Notes_Engagement_Exception.pdf` — Pre-sales · Draft Report · Exception
 
+### 🎙️ Transcript (نص التسجيلات)
+- `SOC2/Transcripts/SOC2_Lecture_Transcript.pdf` — محتوى تسجيلات المحاضرات منظّم بالترتيب (عربي)
+
+### 📊 Report (English)
+- `SOC2/Reports/SOC2_English_Report.pdf` — **ريبورت إنجليزي احترافي** (SOC family · TSC · CC1–CC9 · Type 1/2 · sampling · exceptions)
+
 ---
 
 ## 💳 PCI DSS v4.0.1 — Payment Card Industry Data Security Standard
@@ -38,6 +44,15 @@
 - `PCI-DSS/Notes/PCI_Notes_C2B_Versions.pdf` — C2B/B2B (SWIFT) + نسخ PCI + Superseded Requirements
 - `PCI-DSS/Notes/PCI_Notes_Issuer_Acquirer_Merchant.pdf` — Issuer/Acquirer/Merchant/Cardholder + Affected Services
 - `PCI-DSS/Notes/PCI_Notes_Roadmap.pdf` — خريطة الكورس
+
+### 🎙️ Transcript (نص التسجيلات)
+- `PCI-DSS/Transcripts/PCI_DSS_Lecture_Transcript.pdf` — محتوى تسجيلات المحاضرات منظّم بالترتيب (عربي · 11 مقطع)
+
+### 📊 Report (English)
+- `PCI-DSS/Reports/PCI_DSS_English_Report.pdf` — **ريبورت إنجليزي احترافي** (roles · data model · 6 processes · crypto · 12 requirements · certification)
+
+### 🖥️ Presentation
+- `PCI-DSS/Presentation/PCI_DSS_Presentation.pptx` — **بوربوينت PCI DSS** (13 سلايد قابلة للتعديل)
 
 ### 🖼️ Diagrams
 - `PCI-DSS/Diagrams/PCI_Transaction_Flow.png` — رسمة رحلة الترانزاكشن (كارت CIB → فوري → EBC → CIB)
