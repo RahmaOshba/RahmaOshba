@@ -15,8 +15,9 @@
 - `SOC2/Notes/SOC2_Notes_Exceptions_Cycle.pdf` — كتابة الـ Exception + دورة المشروع
 - `SOC2/Notes/SOC2_Notes_Engagement_Exception.pdf` — Pre-sales · Draft Report · Exception
 
-### 🎙️ Transcript (نص التسجيلات)
-- `SOC2/Transcripts/SOC2_Lecture_Transcript.pdf` — محتوى تسجيلات المحاضرات منظّم بالترتيب (عربي)
+### 🎙️ Transcripts (نصوص التسجيلات)
+- `SOC2/Transcripts/SOC2_Recordings_RAW.pdf` / `.txt` — **النص الحرفي للتسجيلات بدون تعديل** (5 تسجيلات)
+- `SOC2/Transcripts/SOC2_Lecture_Transcript.pdf` — محتوى التسجيلات منظّم بالترتيب (نسخة مرتّبة)
 
 ### 📊 Report (English)
 - `SOC2/Reports/SOC2_English_Report.pdf` — **ريبورت إنجليزي احترافي** (SOC family · TSC · CC1–CC9 · Type 1/2 · sampling · exceptions)
@@ -45,8 +46,9 @@
 - `PCI-DSS/Notes/PCI_Notes_Issuer_Acquirer_Merchant.pdf` — Issuer/Acquirer/Merchant/Cardholder + Affected Services
 - `PCI-DSS/Notes/PCI_Notes_Roadmap.pdf` — خريطة الكورس
 
-### 🎙️ Transcript (نص التسجيلات)
-- `PCI-DSS/Transcripts/PCI_DSS_Lecture_Transcript.pdf` — محتوى تسجيلات المحاضرات منظّم بالترتيب (عربي · 11 مقطع)
+### 🎙️ Transcripts (نصوص التسجيلات)
+- `PCI-DSS/Transcripts/PCI_DSS_Recordings_RAW.pdf` / `PCI_Recordings_RAW.txt` — **النص الحرفي للتسجيلات بدون تعديل** (18 تسجيل)
+- `PCI-DSS/Transcripts/PCI_DSS_Lecture_Transcript.pdf` — محتوى التسجيلات منظّم بالترتيب (نسخة مرتّبة)
 
 ### 📊 Report (English)
 - `PCI-DSS/Reports/PCI_DSS_English_Report.pdf` — **ريبورت إنجليزي احترافي** (roles · data model · 6 processes · crypto · 12 requirements · certification)
